@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+      integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK"
+      crossorigin="anonymous"
+    />
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./index.css" />
+    <!-- FontAwesome icons CDN -->
+    <script
+      src="https://kit.fontawesome.com/6b04747b1a.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Converter</title>
+  </head>
+  <body class="bg-dark">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div id="root">
+      <div class="container-fluid text-light">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="display-3">Converter</h1>
+          </div>
+
+          <div class="col-12">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <h2 class="d-inline align-middle">
+                    1. Choose video(s) to convert:
+                  </h2>
+                  <button
+                    id="addVideosButton"
+                    class="btn btn-primary align-middle"
+                  >
+                    Add Videos
+                  </button>
+                </div>
+
+                <div
+                  id="animateVideoList"
+                  class="col-12 bg-light rounded-3 mb-3 text-dark"
+                >
+                  <ul id="videoList">
+                    <li>
+                      <div class="row">
+                        <div class="col">
+                          <h3>No video(s) chosen...</h3>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <hr />
+
+                <div class="col-12">
+                  <h2>2. Choose format to convert:</h2>
+                </div>
+
+                <div class="col-12 bg-light rounded-3 mb-3 text-dark">
+                  <div class="py-2 h3">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoFormat"
+                        id="mp4"
+                        value="mp4"
+                        checked
+                      />
+                      <label class="form-check-label" for="mp4">.mp4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoFormat"
+                        id="mov"
+                        value="mov"
+                      />
+                      <label class="form-check-label" for="mov">.mov</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoFormat"
+                        id="avi"
+                        value="avi"
+                      />
+                      <label class="form-check-label" for="avi">.avi</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoFormat"
+                        id="flv"
+                        value="flv"
+                      />
+                      <label class="form-check-label" for="flv">.flv</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoFormat"
+                        id="mkv"
+                        value="mkv"
+                      />
+                      <label class="form-check-label" for="mkv">.mkv</label>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="col-12">
+                  <h2>3. Choose resolution to convert:</h2>
+                </div>
+
+                <div class="col-12 bg-light rounded-3 mb-3 text-dark">
+                  <div class="py-2 h3">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoResolution"
+                        id="keep"
+                        value="keep"
+                        checked
+                      />
+                      <label class="form-check-label" for="keep"
+                        >Keep original resolution</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoResolution"
+                        id="1080p"
+                        value="1920"
+                      />
+                      <label class="form-check-label" for="1080p">1080p</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoResolution"
+                        id="720p"
+                        value="1280"
+                      />
+                      <label class="form-check-label" for="720p">720p</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoResolution"
+                        id="480p"
+                        value="854"
+                      />
+                      <label class="form-check-label" for="480p">480p</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoResolution"
+                        id="360p"
+                        value="640"
+                      />
+                      <label class="form-check-label" for="360p">360p</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoResolution"
+                        id="240p"
+                        value="426"
+                      />
+                      <label class="form-check-label" for="240p">240p</label>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="col-12">
+                  <h2>4. Choose whether to invert colors:</h2>
+                </div>
+
+                <div class="col-12 bg-light rounded-3 mb-3 text-dark">
+                  <div class="py-2 h3">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoInvert"
+                        id="keepColor"
+                        value="keep"
+                        checked
+                      />
+                      <label class="form-check-label" for="keepColor"
+                        >Keep original colors</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseVideoInvert"
+                        id="invertColor"
+                        value="invert"
+                      />
+                      <label class="form-check-label" for="invertColor"
+                        >Invert colors</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="col-12">
+                  <h2>5. Choose whether to remove audio:</h2>
+                </div>
+
+                <div class="col-12 bg-light rounded-3 mb-3 text-dark">
+                  <div class="py-2 h3">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseAudio"
+                        id="keepAudio"
+                        value="keep"
+                        checked
+                      />
+                      <label class="form-check-label" for="keepAudio"
+                        >Keep original audio</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="chooseAudio"
+                        id="removeAudio"
+                        value="remove"
+                      />
+                      <label class="form-check-label" for="removeAudio"
+                        >Remove audio</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="col-12 mb-3">
+                  <label
+                    id="qualityRangeLabel"
+                    for="qualityRange"
+                    class="form-label h3"
+                    >6. Quality Conversion (higher is better): 50%
+                  </label>
+                  <input
+                    type="range"
+                    class="form-range"
+                    min="0"
+                    max="34"
+                    id="qualityRange"
+                  />
+                </div>
+
+                <hr />
+
+                <div class="col-12 mb-3">
+                  <h2 class="d-inline align-middle">
+                    7. Choose folder to save:
+                  </h2>
+                  <button
+                    id="chooseFolderButton"
+                    class="btn btn-primary align-middle"
+                  >
+                    Choose folder
+                  </button>
+                </div>
+
+                <div class="col-12 bg-light rounded-3 mb-3 text-dark">
+                  <h3 id="saveFolder" class="pt-2 pb-1">
+                    No folder selected...
+                  </h3>
+                </div>
+
+                <hr />
+
+                <div class="col-12 text-right mb-3">
+                  <button
+                    id="convertButton"
+                    class="btn btn-success btn-lg btn-block"
+                    disabled
+                  >
+                    <h2 id="convertButtonText" class="mb-0">8. Convert</h2>
+                  </button>
+                </div>
+
+                <hr />
+
+                <div class="col-12">
+                  <h2>Converted video(s)</h2>
+                </div>
+
+                <div class="col-12 bg-light rounded-3 mb-3 text-dark">
+                  <ul id="convertedVideoList">
+                    <li>
+                      <div class="row">
+                        <div class="col">
+                          <h3>No video(s) converted...</h3>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-12 text-right mb-3">
+                  <button
+                    id="openConvertedButton"
+                    class="btn btn-primary btn-lg btn-block d-none"
+                  >
+                    <h2 class="mb-0">9. Open folder</h2>
+                  </button>
+                </div>
+                <div class="col-12 text-right mb-3">
+                  <button
+                    id="resetButton"
+                    class="btn btn-info btn-lg btn-block d-none"
+                  >
+                    <h2 class="mb-0">10. Restart</h2>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript and dependencies -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./handleGUI.js"></script>
+  </body>
+</html>
